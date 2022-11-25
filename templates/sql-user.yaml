@@ -1,0 +1,15 @@
+apiVersion: sql.cnrm.cloud.google.com/v1beta1
+kind: SQLUser
+metadata:
+  name: {{ .Values.dbUser }}
+  labels: 
+  {{- include "labels" . | indent 4 }}
+spec:
+  instanceRef:
+    name: sqluser-dep
+  host: {{ .Values.dbName }}-instance
+  password:
+    valueFrom:
+      secretKeyRef:
+        name: {{ .Values.dbUser }}
+        key: password

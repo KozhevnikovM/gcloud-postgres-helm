@@ -1,0 +1,15 @@
+apiVersion: sql.cnrm.cloud.google.com/v1beta1
+kind: SQLInstance
+metadata:
+  name: {{ .Values.dbName }}-instance
+  labels: 
+  {{- include "labels" . | indent 4 }}
+spec:
+  databaseVersion: POSTGRES_13
+  region: {{ .Values.gcpRegion }}
+  settings:
+    tier: {{ .Values.dbInstanceType }}
+    ipConfiguration:
+      ipv4Enabled: false
+      privateNetworkRef:
+        name: {{ .Values.dbName }}-private-network

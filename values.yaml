@@ -1,0 +1,6 @@
+dbName: rmme
+dbUser: user
+dbPassword: password
+dbInstanceType: db-f1-micro 
+gcpProject: jams-0922
+gcpRegion: europe-central2
