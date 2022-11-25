@@ -6,8 +6,7 @@ metadata:
   {{- include "labels" . | indent 4 }}
 spec:
   instanceRef:
-    name: sqluser-dep
-  host: {{ .Values.dbName }}-instance
+    name: {{ .Values.dbName }}-instance
   password:
     valueFrom:
       secretKeyRef:
