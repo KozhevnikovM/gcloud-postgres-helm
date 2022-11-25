@@ -10,5 +10,5 @@ spec:
   password:
     valueFrom:
       secretKeyRef:
-        name: {{ .Values.dbUser }}
+        name: {{ .Values.dbUser }}-secret
         key: password
